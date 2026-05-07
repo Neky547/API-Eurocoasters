@@ -9,21 +9,24 @@ import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "constructeurs")
-class Constructeur(
+@Table(name = "rollercoasters")
+class Rollercoaster(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val constructeurId: Long,
+    val rollercoasterId: Long,
+
     val nom: String,
-    val adresse: String?,
-    val urlSiteWeb: String?,
-    val urlFacebook: String?,
-    val urlInstagram: String?,
-    val urlLinkedIn: String?,
-    val dateCreation: Int?,
+    val structure: String,
+    val type: String,
+    val dateOuverture: Int?,
+    val hauteur: Float?,
 
     @ManyToOne
-    @JoinColumn(name = "fk_ville_id")
-    val ville: Ville?
+    @JoinColumn(name = "fk_constructeur_id")
+    val constructeur: Constructeur?,
+
+    @ManyToOne
+    @JoinColumn(name = "fk_parc_id")
+    val parc: Parc?
 ) {
 }

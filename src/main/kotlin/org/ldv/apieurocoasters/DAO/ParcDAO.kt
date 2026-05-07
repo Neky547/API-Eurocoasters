@@ -1,4 +1,9 @@
 package org.ldv.apieurocoasters.DAO
 
-interface ParcDAO {
+import org.ldv.apieurocoasters.model.entity.Parc
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface ParcDAO: JpaRepository<Parc, Long> {
 }
